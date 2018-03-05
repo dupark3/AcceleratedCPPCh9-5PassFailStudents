@@ -13,7 +13,6 @@ public:
 
     // accessors
     std::string name() const { return n; };
-    double showFinalGrade() const { return finalGrade; };
     char showPassOrFail() const { return passOrFail; };
 
 private:
