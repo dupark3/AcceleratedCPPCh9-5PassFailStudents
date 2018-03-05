@@ -1,4 +1,4 @@
-#include <algorithm> // max, sort
+#include <algorithm> // max, sort, stable_partition
 #include <iostream>
 #include <string>
 #include <vector>
@@ -19,6 +19,8 @@ int main()
 
     // alphabetize students by name
     std::sort(students.begin(), students.end(), compare);
+    // stable partition anyone who is passing to the front
+    std::stable_partition(students.begin(), students.end(), passOrFail);
 
     // write the names and grades of students
     for (std::vector<Student_info>::size_type i = 0; i != students.size(); ++i){
