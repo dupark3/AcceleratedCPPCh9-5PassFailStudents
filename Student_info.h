@@ -28,6 +28,7 @@ private:
 
 // nonmember functions
 bool compare(const Student_info& x, const Student_info& y);
+bool passOrFail(const Student_info& x);
 
 #endif // GUARD_Student_info_h
 

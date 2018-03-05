@@ -29,3 +29,7 @@ void Student_info::grade(){
 bool compare(const Student_info& x, const Student_info& y){
     return x.name() < y.name();
 }
+
+bool passOrFail(const Student_info& x){
+    return x.showPassOrFail() == 'P';
+}
