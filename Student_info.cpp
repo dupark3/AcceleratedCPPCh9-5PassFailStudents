@@ -11,45 +11,21 @@ Student_info::Student_info() : midterm(0), final(0) { }; // default, no argument
 Student_info::Student_info(std::istream& is) { read(is); }; // with arguments
 
 
-
 // member function "read"
 std::istream& Student_info::read(std::istream& in){
     in >> n >> midterm >> final;
-    read_hw(in, homework);
+    grade();
     return in;
 }
 
-// non-member function "read_hw" stores doubles in a vector container from istream
-std::istream& read_hw(std::istream& is, std::vector<double>& homework){
-    if (is){
-        homework.clear();
-        double x;
-        while(is >> x)
-            homework.push_back(x);
-    is.clear();
-    }
-    return is;
-}
 
-
-
-
-// member function "grade" calls on nonmember function "average"
+// member function "grade"
 void Student_info::grade(){
-    // implemented grade within this member function instead of calling an entire non-member function "grade"
-    finalGrade = ((midterm * 0.2) + (final * 0.4) + (::average(homework) * 0.4));
-}
-
-// non-member function "average"
-double average(const std::vector<double>& vec){
-    return accumulate(vec.begin(), vec.end(), 0) / vec.size();
+    finalGrade = ((midterm * 0.4) + (final * 0.6));
+    finalGrade > 60 ? passOrFail = 'P' : passOrFail = 'F';
 }
 
 
 bool compare(const Student_info& x, const Student_info& y){
     return x.name() < y.name();
-}
-
-bool Student_info::valid() const{
-    return homework.size() != 0;
 }

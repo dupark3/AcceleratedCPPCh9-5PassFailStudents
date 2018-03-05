@@ -3,18 +3,16 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
 
 class Student_info {
 public:
     // interface
-    Student_info();
-    Student_info(std::istream&);
-    bool valid() const;
-    void grade();
+    Student_info(); // default constructor
+    Student_info(std::istream&); // constructor with arg
     std::istream& read(std::istream&);
+
+    // accessors
     std::string name() const { return n; };
-    double showFinalGrade() const { return finalGrade; };
 
 private:
     // implementation
@@ -22,14 +20,14 @@ private:
     double midterm;
     double final;
     double finalGrade;
-    std::vector<double> homework;
-
+    char passOrFail;
+    void grade(); // sets finalGrade and passOrFail
 
 };
 
-std::istream& read_hw(std::istream&, std::vector<double>&);
-double average(const std::vector<double>&);
+// nonmember functions
 bool compare(const Student_info& x, const Student_info& y);
+
 #endif // GUARD_Student_info_h
 
 
